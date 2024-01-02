@@ -1,5 +1,6 @@
 import numpy as np
 
+# each individual with properties [A-G]
 current_pop = [[1,1,1,1,1,1,1,1],
 [2,2,2,2,2,2,2,2],
 [3,3,3,3,3,3,3,3],
@@ -10,6 +11,8 @@ current_pop = [[1,1,1,1,1,1,1,1],
 [3,4,3,4,3,4,3,4]
 ]
 
+
+# checks constraints for each individual
 def constraintCheck(p):
     '''
     The function to check constraints
@@ -89,6 +92,8 @@ def constraintCheck(p):
     
     return count, met_constraints
 
+
+# calculate the probabilities of each individual to be chosen for repdudction. Prints out the continuous distribution for each individual to be chosen
 def calc_prob(scores):
     denom = sum(scores)
     sum_so_far = 0
@@ -109,7 +114,8 @@ def find(prob, norm_score):
     for i, p in list(enumerate(norm_score)):
         if prob > p[0] and prob < p[1]:
             return i
-        
+
+# Determine the pairs or individuals to pair together and mutate.
 def pairings(world, norm_scores):
     char_map = {
         0:"A", 
