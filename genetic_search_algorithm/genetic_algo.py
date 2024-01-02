@@ -93,8 +93,11 @@ def constraintCheck(p):
     return count, met_constraints
 
 
-# calculate the probabilities of each individual to be chosen for repdudction. Prints out the continuous distribution for each individual to be chosen
+
 def calc_prob(scores):
+    '''
+    calculate the probabilities of each individual to be chosen for repdudction. Prints out the continuous distribution for each individual to be chosen
+    '''
     denom = sum(scores)
     sum_so_far = 0
     scores_norm = []
@@ -115,8 +118,11 @@ def find(prob, norm_score):
         if prob > p[0] and prob < p[1]:
             return i
 
-# Determine the pairs or individuals to pair together and mutate.
+
 def pairings(world, norm_scores):
+    '''
+    Determine the pairs or individuals to pair together and mutate. Prints mutations and pairings
+    '''
     char_map = {
         0:"A", 
         1:"B",
@@ -158,8 +164,11 @@ def pairings(world, norm_scores):
 
 
 
-## Main genetic search algorithm function:
+
 def genetic_algo(population, attempts):
+    '''
+    Main genetic search algorithm function:
+    '''
     world = population
     scores = []
     iter = attempts
